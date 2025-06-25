@@ -6,7 +6,7 @@ local function is_markdown()
   return ft == 'markdown' or vim.fn.expand '%:e' == 'md'
 end
 
-local function move_to_archive()
+function M.move_to_archive()
   if not is_markdown() then
     vim.notify('Not a markdown file', vim.log.levels.WARN)
     return
@@ -36,8 +36,14 @@ local function move_to_archive()
   vim.notify('Moved to archive: ' .. target_path, vim.log.levels.INFO)
 end
 
-function M.setup()
-  vim.keymap.set('n', '<leader>a', move_to_archive, { desc = 'Move markdown file to archive' })
+function M.setup_keymap()
+  vim.keymap.set('n', '<leader>a', M.move_to_archive, { desc = 'Move markdown file to archive' })
+end
+
+function M.setup(auto_setup_keymap)
+  if auto_setup_keymap ~= false then
+    M.setup_keymap()
+  end
 end
 
 return M
