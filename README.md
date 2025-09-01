@@ -2,14 +2,6 @@
 
 A Neovim plugin for easily archiving markdown files by moving them to a dedicated Archive directory within your project.
 
-## Features
-
-- **Smart Project Detection**: Automatically finds your project root using common markers (`.git`, `.obsidian`, `package.json`, etc.)
-- **Safe Archiving**: Moves markdown files to an `Archive/` directory while preserving the original filename
-- **Conflict Prevention**: Prevents overwriting existing files in the archive
-- **Buffer Management**: Automatically closes the buffer after archiving
-- **File Type Validation**: Only works with markdown files (`.md` extension or `markdown` filetype)
-
 ## Installation
 
 ### Using lazy.nvim
